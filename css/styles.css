@@ -80,8 +80,12 @@ header { padding-bottom: 28px; margin-bottom: 40px; }
 
 /* Contact inline: subtle muted look */
 .contact-inline { text-align: right; font-size: 0.9rem; color: var(--text-muted); }
-.contact-inline a { color: inherit; border-bottom: 1px dashed transparent; }
+.contact-inline a { color: inherit; border-bottom: 1px dashed transparent; display: inline-flex; align-items: center; gap: 8px; }
 .contact-inline a:hover { color: var(--accent); border-color: rgba(37,99,235,0.18); }
+
+/* Contact icons (stroke-based, professional) */
+.contact-inline .ci { width: 16px; height: 16px; flex-shrink: 0; display: inline-block; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0.95; transition: color 140ms ease, transform 140ms ease, opacity 140ms ease; }
+.contact-inline a:hover .ci { color: var(--accent); transform: translateY(-1px); opacity: 1; }
 
 /* Job card refinement */
 .job { background: var(--surface); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow-1); transition: transform 160ms ease, box-shadow 160ms ease; }
@@ -175,10 +179,33 @@ img.avatar {
   cursor: pointer;
   font-size: 0.9rem;
   box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .theme-toggle:hover {
   filter: brightness(0.98);
+}
+
+/* Theme icon (stroke-based to match contact icons) */
+.theme-toggle .theme-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Visually hidden helper for screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
 @media (max-width: 900px) {
@@ -186,7 +213,7 @@ img.avatar {
     top: 12px;
     right: 12px;
   }
-}
+} 
 
 /* ---------- LAYOUT ---------- */
 
@@ -417,5 +444,9 @@ footer span { font-weight: 600; color: var(--text-main); }
   width: 20px;
   height: 20px;
   display: block;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
