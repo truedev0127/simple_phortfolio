@@ -1,0 +1,379 @@
+/* Theme (dark mode variables) */
+body.dark {
+  --bg: #0b1220;
+  --surface: #0f1724;
+  --border: #1f2a37;
+  --text-main: #e6eef8;
+  --text-muted: #9aa7b6;
+  --accent: #60a5fa;
+}
+
+:root {
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --border: #d9dde5;
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --accent: #2563eb;
+} 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  transition: background 200ms ease, color 200ms ease;
+} 
+
+/* ---------- PAGE ---------- */
+
+body {
+  background-image: radial-gradient(circle at 10% 10%, rgba(37,99,235,0.015), transparent 20%);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 32px;
+}
+
+section h2 {
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(37,99,235,0.6));
+  border-radius: 2px;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* Profile avatar */
+.profile { display: flex; align-items: center; gap: 8px; }
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%; /* circular */
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(96,165,250,0.06));
+  border: 1px solid rgba(37,99,235,0.08);
+  box-shadow: 0 2px 6px rgba(11, 17, 28, 0.04);
+}
+
+/* Ensure <img class="avatar"> covers the box */
+img.avatar {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Enhancements to contact links */
+.contact-inline a { color: var(--text-main); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 120ms ease, color 120ms ease; }
+.contact-inline a:hover { color: var(--accent); border-color: rgba(37,99,235,0.18); }
+
+
+.contact-inline {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.contact-inline div {
+  margin-bottom: 6px;
+}
+
+/* Theme toggle (fixed top-right) */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-main);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.theme-toggle:hover {
+  filter: brightness(0.98);
+}
+
+@media (max-width: 900px) {
+  .theme-toggle {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* ---------- LAYOUT ---------- */
+
+.content {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  gap: 56px;
+}
+
+/* ---------- SECTIONS ---------- */
+
+section {
+  margin-bottom: 48px;
+}
+
+section h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ---------- SKILLS ---------- */
+
+.skill-group {
+  margin-bottom: 18px;
+}
+
+.skill-group h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.skill-group ul {
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-group li {
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  background: rgba(37,99,235,0.06);
+  border: 1px solid rgba(37,99,235,0.06);
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+/* ---------- EXPERIENCE ---------- */
+
+.job {
+  margin-bottom: 24px;
+  page-break-inside: avoid;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(11, 17, 28, 0.04);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.job-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.company {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.job ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.job li {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.job:hover {
+  transform: translateY(-3px);
+  transition: transform 160ms ease;
+}
+
+/* ---------- EDUCATION ---------- */
+
+.education h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.education span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  margin-top: 72px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+footer span { font-weight: 600; color: var(--text-main); }
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .profile { align-items: center; }
+
+  .contact-inline {
+    text-align: left;
+  }
+
+  main { padding: 36px 20px; }
+}
+
+/* ---------- PRINT ---------- */
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  main {
+    padding: 32px;
+  }
+
+  header, section h2, footer {
+    border-color: #000;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+/* Utility controls container (e.g., multiple small controls stacked) */
+.utility-controls {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+/* Scroll to top button (now placed inside .utility-controls) */
+.scroll-top {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-main);
+  box-shadow: 0 6px 18px rgba(13, 29, 66, 0.12);
+  cursor: pointer;
+  transition: opacity 200ms ease, transform 200ms ease;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top:focus {
+  outline: 3px solid rgba(37,99,235,0.2);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.06);
+}
+
+/* Icon sizing */
+.scroll-top svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: currentColor;
+}
